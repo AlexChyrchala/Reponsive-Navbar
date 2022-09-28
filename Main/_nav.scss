@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap"); // font-family: 'Montserrat', sans-serif;
+$nav-font-family: "Montserrat", sans-serif;
+$nav-font-color: pink;
+$nav-font-size: 1.5rem;
+$nav-bg-color: rgb(24, 24, 24);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $nav-bg-color;
+}
+.navbar-links {
+  width: 60%;
+  ul {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.navbar-links ul a,
+.navbar-links ul {
+  list-style: none; // dots
+  text-decoration: none; //underline
+}
+nav {
+  .logo {
+    position: relative;
+    cursor: pointer;
+    font-size: $nav-font-size;
+    color: $nav-font-color;
+    font-family: $nav-font-family;
+    left: 1.5em;
+  }
+  .navbar-links a {
+    position: relative;
+    font-family: $nav-font-family;
+    font-size: $nav-font-size;
+    color: $nav-font-color;
+    display: block;
+    &:after {
+      position: absolute;
+      content: "";
+      opacity: 0%;
+      width: 0%;
+      height: 1px;
+      background-color: $nav-font-color;
+      bottom: 2px;
+      left: 0;
+      transition: 0.5s;
+    }
+    &:hover:after {
+      opacity: 100%;
+      width: 100%;
+    }
+  }
+}
+// Hamburger Menu
+.toggle-button {
+  position: absolute;
+  top: 1.3em;
+  right: 3rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  .bar {
+    height: 2px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $nav-font-color;
+  }
+}
+@media (max-width: 600px) {
+  // * {
+  //   // border: black solid 1px;
+  // }
+  .toggle-button {
+    display: flex;
+  }
+  .logo {
+    position: relative;
+    left: 1.5em;
+  }
+  .nav {
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: inherit;
+    padding: 1em 0em;
+  }
+  .mobile-nav {
+    display: none;
+  }
+  .navbar-links ul {
+    margin-top: 1em;
+    background-color: $nav-bg-color;
+    position: absolute;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    a {
+      padding: 0.5em 0em;
+    }
+  }
+  body {
+    // background-color: red;
+  }
+}
